@@ -7,10 +7,16 @@ import { IPet } from "./model/pet";
 export class PetService {
     pets: IPet[] = [];
     selectedPet: IPet | undefined | null;
+    isCreatingPet: boolean = false;
 
     constructor() {
         // console.log("Hello from PetService");
         this.createPets();
+    }
+
+    togglePetCreation(): void {
+        this.isCreatingPet= !this.isCreatingPet;
+        console.log(this.isCreatingPet);
     }
 
     private createPets(): void {
