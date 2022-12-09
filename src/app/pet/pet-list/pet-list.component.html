@@ -1,0 +1,3 @@
+<div class="pet-list">
+  <app-pet-list-item *ngFor="let pet of petList" (click)="onClickPet(pet.id)" [pet]="pet"></app-pet-list-item>
+</div>

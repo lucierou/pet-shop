@@ -1,0 +1,24 @@
+<div class="pet-detail" >
+
+  <div class="pet-info" *ngIf="!!pet; else noPetSelected">
+
+    <div class="title">
+      <h1>{{pet.name | titlecase }}</h1>
+      <h2>{{pet.species}}</h2>
+    </div>
+
+    <p class="price">Prix : {{pet.price}} €</p>
+
+      <p [class]="pet.isAvailable ? 'available' : 'sold'">
+        {{ pet.isAvailable ? "Disponible" : "Vendu" }}
+      </p>
+
+  </div>
+
+  <ng-template #noPetSelected>
+    <div class="no-pet-selected">
+      Merci de sélectionner un animal
+    </div>
+  </ng-template>
+
+</div>
