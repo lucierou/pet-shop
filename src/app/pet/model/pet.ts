@@ -6,4 +6,5 @@ export interface IPet {
   species: Species;
   price: number;
   isAvailable: boolean;
+  imageUrl?: string; // "?" pour indiquer que c'est optionnel
 }

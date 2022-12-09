@@ -29,11 +29,11 @@ export class PetService {
         //   this.pets.push(pet);
         // }
 
-        let mypet : IPet = {id: 1, name: "milou", species: 'chien', price: 500, isAvailable: true};
+        let mypet : IPet = {id: 1, name: "milou", species: 'chien', price: 500, isAvailable: true, imageUrl: 'https://cdn001.tintin.com/public/tintin/img/static/milou/milou_v3.png' };
         this.pets.push(mypet);
-        this.pets.push({id: 2, name: "garfield", species: 'chat', price: 400, isAvailable: false});
-        this.pets.push({id: 3, name: "nemo", species: 'poisson', price: 10, isAvailable: true});
-        this.pets.push({id: 4, name: "bugs bunny", species: 'lapin', price: 50, isAvailable: false});
+        this.pets.push({id: 2, name: "garfield", species: 'chat', price: 400, isAvailable: false, imageUrl:'https://upload.wikimedia.org/wikipedia/en/thumb/b/bc/Garfield_the_Cat.svg/1200px-Garfield_the_Cat.svg.png' });
+        this.pets.push({id: 3, name: "nemo", species: 'poisson', price: 10, isAvailable: true, imageUrl: 'https://easydrawingguides.com/wp-content/uploads/2017/05/How-to-Draw-Nemo-20.png'});
+        this.pets.push({id: 4, name: "bugs bunny", species: 'lapin', price: 50, isAvailable: false, imageUrl: 'https://img.src.ca/2015/07/27/1250x703/150727_co2q2_aetd_bugs-bunny_sn1250.jpg'});
         // console.log(this.pets);
       }
 
