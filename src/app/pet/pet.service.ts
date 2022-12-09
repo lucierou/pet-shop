@@ -1,5 +1,5 @@
 import { Injectable, OnInit } from "@angular/core";
-import { IPet } from "./model/pet";
+import { IPet, Species } from "./model/pet";
 
 @Injectable({
     providedIn: 'root'
@@ -41,9 +41,9 @@ export class PetService {
         this.pets.push({id: 3, name: "nemo", species: 'poisson', price: 10, isAvailable: true, imageUrl: 'https://easydrawingguides.com/wp-content/uploads/2017/05/How-to-Draw-Nemo-20.png'});
         this.pets.push({id: 4, name: "bugs bunny", species: 'lapin', price: 50, isAvailable: false, imageUrl: 'https://img.src.ca/2015/07/27/1250x703/150727_co2q2_aetd_bugs-bunny_sn1250.jpg'});
         // console.log(this.pets);
-      }
+    }
 
-      selectPet(petId: number): void {
+    selectPet(petId: number): void {
         if (petId === this.selectedPet?.id) {
             this.selectedPet = undefined;
         }
@@ -51,5 +51,10 @@ export class PetService {
             this.selectedPet = this.pets.find(element => element.id === petId);
             // console.log(this.selectedPet);
         }
-      }
+    };
+
+    createPet(nom: string, espece: Species, prix: number, disponibilite: boolean, url: string) {
+        this.pets.push({id: (Math.max(...(this.pets.map((pet) => pet.id))))+1, name: nom, species: espece, price: prix, isAvailable: disponibilite, imageUrl:url});
+    };
+
  }

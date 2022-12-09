@@ -1,1 +1,20 @@
-<p>add-pet works!</p>
+<form [formGroup]="addPetForm" (ngSubmit)="onSubmit()" class="add-pet">
+
+    <input type="text" placeholder="Nom" formControlName="name">
+
+    <label for="species">Espèce de l'animal</label>
+    <select name="species" id="species" formControlName="species">
+        <option *ngFor="let spec of species" [value]="spec">{{spec}}</option>
+    </select>
+
+    <input type="number" placeholder="Prix" formControlName="price">
+
+    <div>
+        <label for="availability">Cocher si l'animal est disponible</label>
+        <input type="checkbox" id="availability" formControlName="isAvailable">
+    </div>
+
+    <input type="text" placeholder="URL de l'image" formControlName="imageUrl">
+
+    <button [disabled]="!addPetForm.valid">Ajouter l'animal</button>
+</form>

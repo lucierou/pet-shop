@@ -18,5 +18,6 @@ export class PetListComponent {
 
   onClickPet(id: number): void {
     this.petService.selectPet(id);
+    console.log(id);
   }
 }
