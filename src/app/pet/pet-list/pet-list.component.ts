@@ -16,7 +16,7 @@ export class PetListComponent {
     return this.petService.pets;
   }
 
-  onClickPet(id: number): void {
+  onClickPet(id: string): void {
     this.petService.selectPet(id);
     console.log(id);
   }
