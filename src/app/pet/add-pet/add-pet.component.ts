@@ -25,11 +25,12 @@ species: Species[] = ['chien', 'chat', 'poisson', 'lapin'];
     console.log(this.addPetForm.value);
     console.log(this.addPetForm.valid);
     if (this.addPetForm.valid) {
-      this.petService.createPet(this.addPetForm.value.name,
-                                this.addPetForm.value.species,
-                                this.addPetForm.value.price,
-                                this.addPetForm.value.isAvailable,
-                                this.addPetForm.value.imageUrl);
+      // this.petService.createPet(this.addPetForm.value.name,
+      //                           this.addPetForm.value.species,
+      //                           this.addPetForm.value.price,
+      //                           this.addPetForm.value.isAvailable,
+      //                           this.addPetForm.value.imageUrl);
+      this.petService.createPet(this.addPetForm.value);
 
       this.petService.togglePetCreation();
     }

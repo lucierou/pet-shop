@@ -16,9 +16,7 @@ export class PetService {
     constructor(private http: HttpClient) {
         // console.log("Hello from PetService");
         // this.createPets();
-        this.getPets().subscribe(
-            (pets) => {this.pets = pets;}
-        );
+        this.getPets();
     }
 
     togglePetCreation(): void {
@@ -60,12 +58,26 @@ export class PetService {
         }
     };
 
-    createPet(nom: string, espece: Species, prix: number, disponibilite: boolean, url: string) {
+    // createPet(nom: string, espece: Species, prix: number, disponibilite: boolean, url: string) {
+    //     // this.pets.push({id: (Math.max(...(this.pets.map((pet) => pet.id))))+1, name: nom, species: espece, price: prix, isAvailable: disponibilite, imageUrl:url});
+
+    //     this.http.post(this._petsUrl, {name: nom, species: espece, price: prix, isAvailable: disponibilite, imageUrl:url})
+    //     .subscribe(() => {
+    //         this.getPets();
+    //     });
+    // };
+
+    createPet(pet: any) {
         // this.pets.push({id: (Math.max(...(this.pets.map((pet) => pet.id))))+1, name: nom, species: espece, price: prix, isAvailable: disponibilite, imageUrl:url});
+
+        this.http.post(this._petsUrl, pet)
+        .subscribe(() => {
+            this.getPets();
+        });
     };
 
-    getPets(): Observable<IPet[]> {
-        return this.http.get(this._petsUrl)
+    getPets(): void {
+        this.http.get(this._petsUrl)
         .pipe(map((res: any) => {
             const pets: IPet[] = [];
             for (let key in res) {
@@ -82,6 +94,9 @@ export class PetService {
             }
             return pets;
         }))
+        .subscribe(
+            (pets) => {this.pets = pets;}
+        );
     }
 
  }
