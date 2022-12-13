@@ -10,14 +10,16 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { AddPetComponent } from './pet/add-pet/add-pet.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './home/home.component';
+import { AppRoutingModule } from './app-routing.module';
 
 
 @NgModule({
   declarations: [
-    AppComponent, PetComponent, PetListComponent, PetDetailComponent, PetListItemComponent, NavbarComponent, AddPetComponent
+    AppComponent, PetComponent, PetListComponent, PetDetailComponent, PetListItemComponent, NavbarComponent, AddPetComponent, HomeComponent
   ],
   imports: [
-    BrowserModule, ReactiveFormsModule, HttpClientModule
+    BrowserModule, ReactiveFormsModule, HttpClientModule, AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
