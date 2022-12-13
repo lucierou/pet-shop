@@ -20,7 +20,8 @@ export class PetListComponent {
   }
 
   onClickPet(id: string): void {
-    this.petService.selectPet(id);
+    this.router.navigate([id]);
+    // this.petService.selectPet(id);
     console.log(id);
   }
 

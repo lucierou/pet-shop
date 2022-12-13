@@ -1,7 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
-import { map, Observable } from "rxjs";
+import { map, Observable, Subject } from "rxjs";
 import { IPet, Species } from "./model/pet";
 
 @Injectable({
@@ -9,8 +9,9 @@ import { IPet, Species } from "./model/pet";
 })
 export class PetService {
     pets: IPet[] = [];
-    selectedPet: IPet | undefined | null;
-    isCreatingPet: boolean = false;
+    petsReady$ = new Subject<void>();
+    // selectedPet: IPet | undefined | null;
+    // isCreatingPet: boolean = false;
 
     private _petsUrl: string = 'https://formation-6e588-default-rtdb.europe-west1.firebasedatabase.app/pets.json';
 
@@ -19,6 +20,14 @@ export class PetService {
         // this.createPets();
         this.getPets();
     }
+
+    petWithId(id: string): IPet | null {
+        if (!this.pets.some((pet) => pet.id === id)) {
+            return null;
+        }
+        return this.pets.find((pet) => pet.id === id)!;
+    }
+
 
     // togglePetCreation(): void {
     //     this.isCreatingPet= !this.isCreatingPet;
@@ -49,15 +58,15 @@ export class PetService {
     //     // console.log(this.pets);
     // }
 
-    selectPet(petId: string): void {
-        if (petId === this.selectedPet?.id) {
-            this.selectedPet = undefined;
-        }
-        else {
-            this.selectedPet = this.pets.find(element => element.id === petId);
-            // console.log(this.selectedPet);
-        }
-    };
+    // selectPet(petId: string): void {
+    //     if (petId === this.selectedPet?.id) {
+    //         this.selectedPet = undefined;
+    //     }
+    //     else {
+    //         this.selectedPet = this.pets.find(element => element.id === petId);
+    //         // console.log(this.selectedPet);
+    //     }
+    // };
 
     // createPet(nom: string, espece: Species, prix: number, disponibilite: boolean, url: string) {
     //     // this.pets.push({id: (Math.max(...(this.pets.map((pet) => pet.id))))+1, name: nom, species: espece, price: prix, isAvailable: disponibilite, imageUrl:url});
@@ -98,7 +107,10 @@ export class PetService {
             return pets;
         }))
         .subscribe(
-            (pets) => {this.pets = pets;}
+            (res: IPet[]) => {
+                this.pets = res;
+                this.petsReady$.next();
+            }
         );
     }
 

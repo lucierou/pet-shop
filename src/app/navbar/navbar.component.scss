@@ -5,11 +5,34 @@
   align-items: center;
   justify-content: flex-end;
   padding: 0 20px;
+  gap: 20px;
+
+  a {
+    text-decoration: none;
+    color: white;
+
+    &:hover {
+      color: orange;
+    }
+
+    &.active {
+      color: orange;
+      font-weight: bold;
+    }
+  }
 
   button {
     border: none;
     border-radius: 10px;
     padding: 10px;
     cursor: pointer;
+  }
+
+  .connected {
+    background-color: green;
+  }
+
+  .notConnected {
+    background-color: red;
   }
 }

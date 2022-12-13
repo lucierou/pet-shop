@@ -1,5 +1,5 @@
 <div class="add-pet">
-    <button [routerLink]="['..', 'index']">Retour à la liste</button>
+    <button class="btn-nav" [routerLink]="['..', 'index']">Retour à la liste</button>
 
     <form [formGroup]="addPetForm" (ngSubmit)="onSubmit()" class="form">
 

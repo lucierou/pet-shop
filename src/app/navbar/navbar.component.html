@@ -1,8 +1,12 @@
 <div class="navbar">
 
-    <!-- <button (click)="onTogglePetCreation()">Créer / Consulter</button> -->
+    <a routerLink="home" routerLinkActive="active">Home Component</a>
+    <a routerLink="pet" routerLinkActive="active">Pet Component</a>
 
-    <a routerLink="home">Home Component</a>
-    <a routerLink="pet">Pet Component</a>
+    <button (click)="onToggleAuth()" [ngClass]="{connected: isAuth, notConnected: !isAuth}" >
+        {{ isAuth ? "Connecté" : "Déconnecté" }}
+    </button>
+
+
 
 </div>

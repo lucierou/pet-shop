@@ -17,8 +17,8 @@ export class PetListItemComponent {
   constructor(private petService: PetService) {
   }
 
-  get selectedPet(): IPet | undefined | null {
-    return this.petService.selectedPet;
-  }
+  // get selectedPet(): IPet | undefined | null {
+  //   return this.petService.selectedPet;
+  // }
 
 }
