@@ -1,20 +1,24 @@
-<form [formGroup]="addPetForm" (ngSubmit)="onSubmit()" class="add-pet">
+<div class="add-pet">
+    <button [routerLink]="['..', 'index']">Retour à la liste</button>
 
-    <input type="text" placeholder="Nom" formControlName="name">
+    <form [formGroup]="addPetForm" (ngSubmit)="onSubmit()" class="form">
 
-    <label for="species">Espèce de l'animal</label>
-    <select name="species" id="species" formControlName="species">
-        <option *ngFor="let spec of species" [value]="spec">{{spec}}</option>
-    </select>
+        <input type="text" placeholder="Nom" formControlName="name">
 
-    <input type="number" placeholder="Prix" formControlName="price">
+        <label for="species">Espèce de l'animal</label>
+        <select name="species" id="species" formControlName="species">
+            <option *ngFor="let spec of species" [value]="spec">{{spec}}</option>
+        </select>
 
-    <div>
-        <label for="availability">Cocher si l'animal est disponible</label>
-        <input type="checkbox" id="availability" formControlName="isAvailable">
-    </div>
+        <input type="number" placeholder="Prix" formControlName="price">
 
-    <input type="text" placeholder="URL de l'image" formControlName="imageUrl">
+        <div>
+            <label for="availability">Cocher si l'animal est disponible</label>
+            <input type="checkbox" id="availability" formControlName="isAvailable">
+        </div>
 
-    <button [disabled]="!addPetForm.valid">Ajouter l'animal</button>
-</form>
+        <input type="text" placeholder="URL de l'image" formControlName="imageUrl">
+
+        <button [disabled]="!addPetForm.valid">Ajouter l'animal</button>
+    </form>
+</div>

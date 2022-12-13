@@ -1,5 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
 import { map, Observable } from "rxjs";
 import { IPet, Species } from "./model/pet";
 
@@ -13,16 +14,16 @@ export class PetService {
 
     private _petsUrl: string = 'https://formation-6e588-default-rtdb.europe-west1.firebasedatabase.app/pets.json';
 
-    constructor(private http: HttpClient) {
+    constructor(private http: HttpClient, private router: Router) {
         // console.log("Hello from PetService");
         // this.createPets();
         this.getPets();
     }
 
-    togglePetCreation(): void {
-        this.isCreatingPet= !this.isCreatingPet;
-        console.log(this.isCreatingPet);
-    }
+    // togglePetCreation(): void {
+    //     this.isCreatingPet= !this.isCreatingPet;
+    //     console.log(this.isCreatingPet);
+    // }
 
     // private createPets(): void {
     //     // const names: string[] = ['milou', 'garfield', 'nemo', 'bugs bunny'];
@@ -74,6 +75,8 @@ export class PetService {
         .subscribe(() => {
             this.getPets();
         });
+
+        this.router.navigate(['pet', 'index']);
     };
 
     getPets(): void {

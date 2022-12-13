@@ -1,0 +1,20 @@
+.pet-index {
+    height: 100%;
+
+    .pet-read-container {
+      height: 100%;
+      display: flex;
+
+      app-pet-list, app-pet-detail {
+        padding: 10px;
+      }
+
+      app-pet-list {
+        flex: 1;
+      }
+
+      app-pet-detail {
+        flex: 2;
+      }
+    }
+   }

@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
-import { IPet } from '../model/pet';
-import { PetService } from '../pet.service';
+import { IPet } from '../../model/pet';
+import { PetService } from '../../pet.service';
+
+
 
 @Component({
   selector: 'app-pet-list',
@@ -9,7 +12,7 @@ import { PetService } from '../pet.service';
   styleUrls: ['./pet-list.component.scss']
 })
 export class PetListComponent {
-  constructor(private petService: PetService) {
+  constructor(private petService: PetService, private router: Router, private route: ActivatedRoute) {
   }
 
   get petList(): IPet[] {
@@ -19,5 +22,9 @@ export class PetListComponent {
   onClickPet(id: string): void {
     this.petService.selectPet(id);
     console.log(id);
+  }
+
+  onClickNouveau(): void {
+    this.router.navigate(['..','add'], {relativeTo: this.route});
   }
 }

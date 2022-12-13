@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Species } from '../model/pet';
 import { PetService } from '../pet.service';
 
@@ -32,9 +33,10 @@ species: Species[] = ['chien', 'chat', 'poisson', 'lapin'];
       //                           this.addPetForm.value.imageUrl);
       this.petService.createPet(this.addPetForm.value);
 
-      this.petService.togglePetCreation();
+      // this.petService.togglePetCreation();
     }
 
   };
+
 
 }

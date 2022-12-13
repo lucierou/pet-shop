@@ -7,10 +7,8 @@ import { PetService } from "./pet.service";
   styleUrls: ['./pet.component.scss']
 })
 export class PetComponent {
-  constructor(private petService: PetService) {
+  constructor() {
   }
 
-get isCreatingPet(): boolean {
-  return this.petService.isCreatingPet;
-}
+
 }

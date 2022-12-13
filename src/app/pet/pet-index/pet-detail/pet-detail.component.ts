@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 
-import { IPet } from '../model/pet';
-import { PetService } from '../pet.service';
+import { IPet } from '../../model/pet';
+import { PetService } from '../../pet.service';
+
+
 
 @Component({
   selector: 'app-pet-detail',
